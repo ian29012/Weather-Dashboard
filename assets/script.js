@@ -1,13 +1,11 @@
 var API_KEY = "698f87042ad86cf6449b664a66cbd85d"
 
-$("#search-button").on("click", function(event){
-    event.preventDefault();
+function render(searchCity){
 
     if ($("#today").children) {
         $("#today").empty();
     }
     
-    var searchCity = $("#search-input").val().trim()
     var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + searchCity + "&units=metric&limit=5&appid=" + API_KEY
     console.log(queryURL) 
 
@@ -22,10 +20,34 @@ $.ajax({
         $("#today").append($('<p class="current" id="Temperature">' + response.list[0].main.temp + "°C" + '</p>'))
         $("#today").append($('<p class="current" id="humidity">' + 'Humidity : ' + response.list[0].main.humidity + " %" + '</p>'))
         console.log(response);
+        $("#history").prepend($("<button class='historybutton' id='historybutton'>" + searchCity + "</button>"))
+        $('[name="inputvalue"]').val("");
     })
 
-    $('[name="inputvalue"]').val("");
+}
 
-    $("#history").text("hi")
+$("#search-button").on("click", function(event){
+    event.preventDefault();
+    
+    var searchInput = $("#search-input").val().trim()
+
+    render(searchInput)
+    historyfive()
 })
 
+$("#history").on("click", function(event){
+    event.preventDefault();
+
+    render(event.target.innerHTML)
+    historyfive()
+
+})
+
+function historyfive(){
+
+    if($("button")[5]){
+    $("button")[5].remove()
+    }
+}
+
+historyfive()
