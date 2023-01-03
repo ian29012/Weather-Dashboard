@@ -10,7 +10,7 @@ function render(searchCity){
         $("#forecast").empty();
     }
 
-    var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + searchCity + "&units=metric&limit=5&appid=" + API_KEY
+    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + searchCity + "&units=metric&limit=5&appid=" + API_KEY
     console.log(queryURL) 
 
 $.ajax({
