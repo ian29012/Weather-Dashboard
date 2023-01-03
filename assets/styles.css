@@ -68,9 +68,32 @@ h2 {
   color: #fff;
 }
 
-#current {
-    margin: 15px !important;
-    font-size: 25px !important;
+.current {
+    margin: 15px ;
+    margin-left: 30px ;
+    font-size: 15px ;
+    text-align: start;
+    font-weight: 800;
+}
+
+#today > #thedate {
+    font-size: 22px ;
+}
+
+#today > img {
+    margin: 0;
+    width: 150px;
+    justify-content: flex-start;
+    display: flex;
+
+}
+
+#forecast {
+    margin: 16px ;
+    font-size: 14px ;
+    font-weight: 800;
+    justify-content: space-evenly;
+    text-align: center;
 }
 
 #today {
