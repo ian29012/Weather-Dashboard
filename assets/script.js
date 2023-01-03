@@ -37,10 +37,9 @@ $.ajax({
         forecast.append($('<p class="forecast" id="humidity">' + 'Humidity : ' + response.list[i].main.humidity + " %" + '</p>'))
 
         $("#forecast").append(forecast)
-console.log(i)
+        console.log(i)
         }
-//     }
-        $("#history").prepend($("<button class='historybutton' id='historybutton'>" + searchCity + "</button>"))
+
         $('[name="inputvalue"]').val("");
     })
 
@@ -48,12 +47,30 @@ console.log(i)
 
 $("#search-button").on("click", function(event){
     event.preventDefault();
-    
-    var searchInput = $("#search-input").val().trim()
 
+    var searchInput = $("#search-input").val().trim()
+    var storageCity = localStorage.getItem("storageCity")
+    var historyCity = JSON.parse(storageCity) || []
+
+    historyCity.push(searchInput)
+
+    localStorage.setItem("storageCity", JSON.stringify(historyCity))
+    
+    updateButton()
     render(searchInput)
     historyfive()
 })
+
+function updateButton(){
+
+    $("#history").empty()
+
+    var storageCity = JSON.parse(localStorage.getItem("storageCity"))
+    console.log(storageCity)
+    for ( var i = 0; i < storageCity.length; i++ ) {
+    $("#history").prepend($("<button class='historybutton' id='historybutton'>" + storageCity[i] + "</button>"))
+    }
+}
 
 $("#history").on("click", function(event){
     event.preventDefault();
@@ -70,4 +87,5 @@ function historyfive(){
     }
 }
 
+updateButton()
 historyfive()
