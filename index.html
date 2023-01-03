@@ -13,20 +13,20 @@
 
 <body>
   <header class="container-fluid text-center text-white bg-dark p-2 weather-header">
-    <h1>Weather Dashboard</h1>
+    <h1 class="text">Weather Dashboard</h1>
   </header>
 
   <!-- max-width for ultra wide resolutions -->
-  <div class="container-fluid" style="max-width: 1400px">
+  <div class="container-fluid search" style="max-width: 1400px">
     <div class="row">
       <aside class="col-lg-3">
-        <h2 id="form-heading" class="">Search for a City:</h2>
+        <h2 id="form-heading" class="text">Search for a City:</h2>
         <form id="search-form" class="searchform">
           <input class="" type="text" id="search-input" placeholder="London" name="inputvalue"/>
           <button type="submit" class="" id="search-button">Search</button>
           <hr class="" />
         </form>
-        <h2>Search History</h2>
+        <h2 class="text">Search History</h2>
         <div class="list-group" id="history"></div>
       </aside>
 
