@@ -109,9 +109,10 @@ function updateButton(){
     var storageCity = JSON.parse(localStorage.getItem("storageCity"))
 
     // list the button to history by for loop
+    if (storageCity) {
     for ( var i = 0; i < storageCity.length; i++ ) {
     $("#history").prepend($("<button class='historybutton' id='historybutton'>" + storageCity[i] + "</button>"))
-    }
+    }}
 }
 
 // display the weather when you click the history button
@@ -125,16 +126,15 @@ $("#history").on("click", function(event){
 
 updateButton()
 
-// default page
+// default page will be london if you don't have use before
 function openPage(){
 
-    // default page will be london if you don't have use before
-    if ($("#historybutton")){
+    if ($("#historybutton")[0]){
       var page = $("#historybutton")[0].innerHTML
       render(page)
     } else {
-      render("london")
+      render("London")
     }
-   }
-   
-   openPage()
+    }
+
+openPage()
