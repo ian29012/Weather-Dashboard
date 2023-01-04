@@ -37,7 +37,7 @@ SO THAT I can plan a trip accordingly
 
 
 ## Credits
-WahterAPI : https://openweathermap.org/  
-Backgoundcolor : https://cssgradient.io/  
-Button : https://getcssscan.com/css-buttons-examples  
+WeahterAPI : https://openweathermap.org/  
+BackgoundColor : https://cssgradient.io/  
+ButtonSample : https://getcssscan.com/css-buttons-examples  
 Icon : https://fontawesome.com/
