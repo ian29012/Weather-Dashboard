@@ -122,3 +122,17 @@ $("#history").on("click", function(event){
     render(event.target.innerHTML)
 
 })
+
+updateButton()
+
+function openPage(){
+
+    if ($("#historybutton")){
+      var page = $("#historybutton")[0].innerHTML
+      render(page)
+    } else {
+      render("london")
+    }
+   }
+   
+   openPage()
