@@ -128,8 +128,6 @@ h2 {
     display: block;
 }
 
-.icon::before {
-    display: inline-block;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
+.fa-calendar-days {
+    float: right;
   }

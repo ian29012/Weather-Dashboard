@@ -22,19 +22,19 @@ $.ajax({
         var weatherURL = "http://openweathermap.org/img/wn/" + result.weather[0].icon + "@2x.png"
 
         // city name + current day
-        $("#today").append($('<p class="current" id="thedate">' + response.city.name + ' ( ' + currentDate + ' )</p>'))
+        $("#today").append($('<p class="current" id="thedate">' + response.city.name + ' <i class="fa-solid fa-earth-asia"></i> ( ' + currentDate + ' )</p>'))
 
         // weather icon
         $("#today").append($('<img class="current" id="icon">').attr("src", weatherURL))
 
         // temperature
-        $("#today").append($('<p class="current" id="Temperature">Tempe : '+ result.main.temp.toFixed(1) + "°C" + '</p>'))
+        $("#today").append($('<p class="current" id="Temperature">Tempe : '+ result.main.temp.toFixed(1) + "°C" + ' <i class="fa-solid fa-temperature-half"></i></p>'))
 
         // humidity
-        $("#today").append($('<p class="current" id="humidity">Humidity ' + result.main.humidity + "%" + '</p>'))
+        $("#today").append($('<p class="current" id="humidity">Humidity : ' + result.main.humidity + "%" + ' <i class="fa-solid fa-water"></i></p>'))
 
         // windspeed
-        $("#today").append($('<p class="current" id="windspeed">Wind <i class="fa-solid fa-wind"></i> : ' + windspeedC.toFixed(1) + " KPH" + '</p>'))
+        $("#today").append($('<p class="current" id="windspeed">Wind : ' + windspeedC.toFixed(1) + " KPH" + ' <i class="fa-solid fa-wind"></i></p>'))
 
         // looping 5 day forecast
         for (var i = 8; i < 41; i+=7 ){
@@ -44,7 +44,7 @@ $.ajax({
         var forecastDate = moment.unix(resulti .dt).format("MM-DD-YYYY")
 
         // city name + forecast
-        forecast.append($('<p class="forecast" id="thedate">' + forecastDate + '</p>'))
+        forecast.append($('<p class="forecast" id="thedate">' + forecastDate + ' <i class="fa-solid fa-calendar-days"></i></p>'))
 
         // weather icon
         var weatherIURL = "http://openweathermap.org/img/wn/" + resulti.weather[0].icon + "@2x.png"
@@ -125,8 +125,10 @@ $("#history").on("click", function(event){
 
 updateButton()
 
+// default page
 function openPage(){
 
+    // default page will be london if you don't have use before
     if ($("#historybutton")){
       var page = $("#historybutton")[0].innerHTML
       render(page)
