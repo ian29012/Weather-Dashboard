@@ -1,9 +1,5 @@
-:root {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-weight: 0 !important;
-    font-family: "Basier circle", "Noto Color Emoji";
+body {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
 }
 
 header {
@@ -11,13 +7,17 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgb(93,162,240);
-    background: linear-gradient(41deg, rgba(93,162,240,1) 11%, rgba(169,165,249,1) 53%, rgba(28,190,223,1) 99%);
+    background: linear-gradient(45deg, #4b6cb7 -100%, #182848 110%);
 }
 
-header h1 {
+header > h1 {
     color: aliceblue;
-    text-shadow: 4px 4px 4px #a1a1a1aa;
+    text-shadow: 2px 2px 2px #6362627e;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1rem;
 }
 
 h2 {
@@ -69,37 +69,44 @@ h2 {
 }
 
 .current {
-    margin: 15px ;
     margin-left: 30px ;
-    font-size: 15px ;
     text-align: start;
     font-weight: 800;
+    line-height: 1.5rem;
 }
 
 #today > #thedate {
-    font-size: 22px ;
+    margin-top: 1.5rem;
+    font-size: 28px ;
+    float: left;
+    display: inline;
 }
 
 #today > img {
-    margin: 0;
-    width: 150px;
-    justify-content: flex-start;
-    display: flex;
-
+    width: 9%;
+    display: block;
 }
 
-#forecast {
-    margin: 16px ;
-    font-size: 14px ;
-    font-weight: 800;
-    justify-content: space-evenly;
-    text-align: center;
-}
 
 #today {
-    border: 1px solid #707277;
+    border-bottom: 0.2px solid #979797;
+}
+
+.forecastcon {
+    text-align: start;
 }
 
 #forecast {
-    border: 1px solid #707277;
+    justify-content: space-evenly;
+}
+
+.forecastdiv {
+    background: linear-gradient(45deg, #4b6cb7 -100%, #182848 110%);
+}
+
+.forecast {
+    margin: 12px 15px ;
+    font-size: 14px ;
+    font-weight: 800;
+    color: #ffffff;
 }
