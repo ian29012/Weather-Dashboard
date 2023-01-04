@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
   <link rel="stylesheet" href="./assets/styles.css" />
   <title>Weather Dashboard</title>
 </head>
@@ -19,6 +19,7 @@
   <!-- max-width for ultra wide resolutions -->
   <div class="container-fluid search" style="max-width: 1400px">
     <div class="row">
+      <!-- Search form and history container -->
       <aside class="col-lg-3">
         <h2 id="form-heading" class="text">Search for a City:</h2>
         <form id="search-form" class="searchform">
@@ -29,7 +30,7 @@
         <h2 class="text">Search History</h2>
         <div class="list-group" id="history"></div>
       </aside>
-
+      <!-- Current and Forecast container -->
       <div class="col-lg-9">
         <section id="today" class=""></section>
         <div class="container-fluid forecastcon" style="max-width: 1400px"><h2 class="text current">5 day Forecast</h2>

@@ -18,23 +18,47 @@ $.ajax({
     method: "GET"
 }).then(function(response){
 
-        $("#today").append($('<p class="current" id="thedate">' + response.city.name + ' ( ' + moment.unix(response.list[0].dt).format("MM-DD-YYYY") + ' )</p>'))
-        var weathericon = "http://openweathermap.org/img/wn/" + response.list[0].weather[0].icon + "@2x.png"
-        $("#today").append($('<img class="current" id="icon">').attr("src", weathericon))
-        $("#today").append($('<p class="current" id="Temperature">' + 'Tempe : '+ response.list[0].main.temp.toFixed(1) + "°C" + '</p>'))
-        $("#today").append($('<p class="current" id="humidity">' + 'Humidity : ' + response.list[0].main.humidity + "%" + '</p>'))
-        var windspeed = response.list[0].wind.speed * 2.236936
-        $("#today").append($('<p class="current" id="windspeed">' + 'Wind : ' + windspeed.toFixed(1) + " mph" + '</p>'))
-        console.log(response);
+        var result = response.list[0]
+        var currentDate = moment.unix(result .dt).format("MM-DD-YYYY")
+        var windspeedC = result.wind.speed * 2.236936
+        var weatherURL = "http://openweathermap.org/img/wn/" + result.weather[0].icon + "@2x.png"
 
+        // city name + current day //
+        $("#today").append($('<p class="current" id="thedate">' + response.city.name + ' ( ' + currentDate + ' )</p>'))
+
+        // weather icon //
+        $("#today").append($('<img class="current" id="icon">').attr("src", weatherURL))
+
+        // temperature //
+        $("#today").append($('<p class="current" id="Temperature">Tempe : '+ result.main.temp.toFixed(1) + "°C" + '</p>'))
+
+        // humidity //
+        $("#today").append($('<p class="current" id="humidity">Humidity ' + result.main.humidity + "%" + '</p>'))
+
+        // windspeed //
+        $("#today").append($('<p class="current" id="windspeed">Wind <i class="fa-solid fa-wind"></i> : ' + windspeedC.toFixed(1) + " KPH" + '</p>'))
+
+        // looping 5 day forecast //
         for (var i = 8; i < 41; i+=7 ){
 
         var forecast = $("<div class='col-lg-1.8 forecastdiv'>")
-        forecast.append($('<p class="forecast" id="thedate">' + moment.unix(response.list[i].dt).format("MM-DD-YYYY") + '</p>'))
-        var weathericon = "http://openweathermap.org/img/wn/" + response.list[i].weather[0].icon + "@2x.png"
-        forecast.append($('<img class="forecast" id="icon">').attr("src", weathericon))
-        forecast.append($('<p class="forecast" id="Temperature">' + 'Tempe : ' + response.list[i].main.temp + "°C" + '</p>'))
-        forecast.append($('<p class="forecast" id="humidity">' + 'Humidity : ' + response.list[i].main.humidity + "%" + '</p>'))
+        var resulti = response.list[i]
+        var forecastDate = moment.unix(resulti .dt).format("MM-DD-YYYY")
+
+        // city name + forecast //
+        forecast.append($('<p class="forecast" id="thedate">' + forecastDate + '</p>'))
+
+        // weather icon //
+        var weathericon = "http://openweathermap.org/img/wn/" + resulti.weather[0].icon + "@2x.png"
+        forecast.append($('<img class="forecast" id="icon" alt="Weather icon">').attr("src", weathericon))
+
+        // temperature //
+        forecast.append($('<p class="forecast" id="Temperature">' + 'Tempe : ' + resulti.main.temp + "°C" + '</p>'))
+        // humidity //
+        forecast.append($('<p class="forecast" id="humidity">' + 'Humidity : ' + resulti.main.humidity + "%" + '</p>'))
+        var windspeedF = resulti.wind.speed * 2.236936
+        // windspeed //
+        forecast.append($('<p class="forecast" id="windspeed">' + 'Wind : ' + windspeedF.toFixed(1) + " KPH" + '</p>'))
 
         $("#forecast").append(forecast)
         console.log(i)
