@@ -74,7 +74,7 @@ $.ajax({
 $("#search-button").on("click", function(event){
     event.preventDefault();
 
-    // get the text from input
+    // get the text from input and make a capital letter
     var searchInput = $("#search-input").val().trim().toUpperCase()
 
     // get the local storage
