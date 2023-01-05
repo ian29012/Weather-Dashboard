@@ -21,19 +21,19 @@ $.ajax({
         var windspeedC = result.wind.speed * 2.236936
         var weatherURL = "http://openweathermap.org/img/wn/" + result.weather[0].icon + "@2x.png"
 
-        // city name + current day
+        // get the city name + current day data and append to #today
         $("#today").append($('<p class="current" id="thedate">' + response.city.name + ' <i class="fa-solid fa-earth-asia"></i> ( ' + currentDate + ' )</p>'))
 
-        // weather icon
+        // get the weather icon data and append to #today
         $("#today").append($('<img class="current" id="icon">').attr("src", weatherURL))
 
-        // temperature
+        // get the temperature data and append to #today
         $("#today").append($('<p class="current" id="Temperature">Tempe : '+ result.main.temp.toFixed(1) + "°C" + ' <i class="fa-solid fa-temperature-half"></i></p>'))
 
-        // humidity
+        // get the humidity data and append to #today
         $("#today").append($('<p class="current" id="humidity">Humidity : ' + result.main.humidity + "%" + ' <i class="fa-solid fa-water"></i></p>'))
 
-        // windspeed
+        // get the windspeed data and append to #today
         $("#today").append($('<p class="current" id="windspeed">Wind : ' + windspeedC.toFixed(1) + " KPH" + ' <i class="fa-solid fa-wind"></i></p>'))
 
         // looping 5 day forecast
@@ -43,20 +43,20 @@ $.ajax({
         var resulti = response.list[i]
         var forecastDate = moment.unix(resulti .dt).format("MM-DD-YYYY")
 
-        // city name + forecast
+        // get the day data and append to forecastDiv
         forecast.append($('<p class="forecast" id="thedate">' + forecastDate + ' <i class="fa-solid fa-calendar-days"></i></p>'))
 
-        // weather icon
+        // get the weather icon and append to forecastDiv
         var weatherIURL = "http://openweathermap.org/img/wn/" + resulti.weather[0].icon + "@2x.png"
         forecast.append($('<img class="forecast" id="icon" alt="Weather icon">').attr("src", weatherIURL))
 
-        // temperature
+        // get the temperature and append to forecastDiv
         forecast.append($('<p class="forecast" id="Temperature">' + 'Tempe : ' + resulti.main.temp + "°C" + '</p>'))
 
-        // humidity
+        // get the humidity and append to forecastDiv
         forecast.append($('<p class="forecast" id="humidity">' + 'Humidity : ' + resulti.main.humidity + "%" + '</p>'))
 
-        // windspeed
+        // get the windspeed and append to forecastDiv
         var windspeedF = resulti.wind.speed * 2.236936
         forecast.append($('<p class="forecast" id="windspeed">' + 'Wind : ' + windspeedF.toFixed(1) + " KPH" + '</p>'))
 
