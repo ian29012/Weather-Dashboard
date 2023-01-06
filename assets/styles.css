@@ -26,7 +26,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h2 {
-    margin: 25px 15px;
+    margin: 18px 15px;
     font-size: 25px;
 }
 
@@ -88,7 +88,7 @@ h2 {
     display: inline;
 }
 
-#today > img {
+#today > #icon {
     margin-bottom: -1.2rem;
     width: 90px;
     display: block;
@@ -100,16 +100,11 @@ h2 {
 
 /* 5 Day Forecast */
 
-.forecastcon {
-    text-align: start;
-}
-
 #forecast {
     justify-content: space-evenly;
 }
 
 .forecastdiv {
-    text-align: start;
     padding: 10px 23px;
     border-radius: 1.3rem;
     box-shadow: 2px 4px 4px rgba(125, 151, 203, 0.25);
@@ -128,6 +123,10 @@ h2 {
     display: block;
 }
 
+.forecastheading {
+    margin-left: 15px ;
+}
+
 .fa-calendar-days {
-    float: right;
+    margin-left: 10px;
   }
