@@ -1,4 +1,4 @@
-# Module 8 Server-Side APIs: Weather Dashboard
+# Weather Dashboard
 
 ## Your Task
 
